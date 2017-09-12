@@ -12,12 +12,12 @@ public class CodingConvention {
 	 * constructor is like method; return type = an instance of class a constructor must ALWAYS be named after 
 	the class 
 	*/
-	public CodingConvention(String name, int descriptionIndex) {
+	public CodingConvention(int names, int descriptionIndex) {
 		//Instantiate variables now: (only in constructor) 
 		
 		//there are two variables called "name" the local variable and the field 
 		//distinguish between the two by using the reserved word "this" 
-		this.name = name;
+		name = IntroMain.NAMES[names];
 		
 		//this is a static call to a constant
 		description = IntroMain.DESCRIPTIONS[descriptionIndex];
