@@ -1,7 +1,7 @@
 package attendance;
 
 
-public class Attendee {
+public interface Attendee {
 
 
 	//returns true if the student has been marked present, false otherwise

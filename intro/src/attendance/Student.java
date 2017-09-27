@@ -1,6 +1,7 @@
 package attendance;
 
-public class Student implements Attendee{
+public class Student implements Attendee
+{
 	/**In addition to the following methods, please create a class called 
 	 * 'Student' that implements the Attendee interface and include a 
 	 * constructor that takes two parameters: firstName and lastName.
@@ -62,7 +63,8 @@ public class Student implements Attendee{
 	}
 	public String getReportString()
 	{
-		String endString; 
+		String endString;
+		endString = "";
 		if (lastN.length() > 20)
 		{
 			for (int y = 0; y < lastN.length(); y++)
@@ -73,6 +75,7 @@ public class Student implements Attendee{
 				}
 				endString += lastN.substring(y,y+1);
 			}
+			
 		}
 		else
 		{
@@ -80,13 +83,10 @@ public class Student implements Attendee{
 			
 		}
 		
-		int numberOfSpace = 20;
+	
 		
 		
-		for(int i = 0; i < numberOfSpace - lastN.length() + 1 ; i++)
-		{
-			endString += " ";
-		}
+		includeSpace (endString, 20);
 		
 		if (firstN.length() > 20)
 		{
@@ -105,10 +105,7 @@ public class Student implements Attendee{
 			
 		}
 		
-		for(int x = 0; x < numberOfSpace - firstN.length() + 1; x++)
-		{
-			endString += " ";
-		}
+		includeSpace (endString, 20);
 		
 		if(studentHere)
 		{
@@ -121,5 +118,13 @@ public class Student implements Attendee{
 		return endString;
 	}
 	
+	public String includeSpace (String st,int sp)
+	{
+		for (int x = 0; x < sp; x++ )
+		{
+			st += " ";
+		}
+		return st;
+	}
  
 }
