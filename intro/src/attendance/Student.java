@@ -77,16 +77,15 @@ public class Student implements Attendee
 			}
 			
 		}
-		else
+		endString += lastN;
+
+		int numberOfSpaceL = 20;
+		
+		
+		for(int i = 0; i < numberOfSpaceL - lastN.length() + 1 ; i++)
 		{
-			endString += lastN;
-			
+			endString += " ";
 		}
-		
-	
-		
-		
-		includeSpace (endString, 20);
 		
 		if (firstN.length() > 20)
 		{
@@ -97,15 +96,17 @@ public class Student implements Attendee
 					endString += "...";
 				}
 				endString += firstN.substring(y, y+1);
+				
 			}
 		}
-		else
-		{
-			endString += firstN;
-			
-		}
+		endString += firstN;
+
+		int numberOfSpaceF = 40;
 		
-		includeSpace (endString, 20);
+		for(int x = 0; x < numberOfSpaceF - firstN.length() + 1; x++)
+		{
+			endString += " ";
+		}
 		
 		if(studentHere)
 		{
@@ -118,13 +119,5 @@ public class Student implements Attendee
 		return endString;
 	}
 	
-	public String includeSpace (String st,int sp)
-	{
-		for (int x = 0; x < sp; x++ )
-		{
-			st += " ";
-		}
-		return st;
-	}
  
 }
