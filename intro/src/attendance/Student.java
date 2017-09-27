@@ -1,6 +1,6 @@
 package attendance;
 
-public class Student {
+public class Student implements Attendee{
 	/**In addition to the following methods, please create a class called 
 	 * 'Student' that implements the Attendee interface and include a 
 	 * constructor that takes two parameters: firstName and lastName.
@@ -14,20 +14,17 @@ public class Student {
 	public Student(String firstName,String lastName){
 		this.firstN = firstName;
 		this.lastN = lastName;
+		studentHere = false; 
 	}
 	
 	public boolean isPresent()
 	{
-		return studentHere;
+		return studentHere; //getter
 	}
 	
 	public void setPresent(boolean present)
 	{
-		boolean presentS = this.isPresent();
-		if(present != presentS) // true != false
-		{
-			presentS = present; 
-		}
+		this.studentHere = present; //setter
 	}
 	
 	public String getFirstName()
@@ -42,7 +39,7 @@ public class Student {
 	
 	public boolean mathces(String first, String last)
 	{
-		if(first.equals(firstN) && last.equals(lastN)) //case sensitive
+		if(first.toLowerCase().equals(firstN.toLowerCase()) && last.toLowerCase().equals(lastN.toLowerCase())) //case sensitive
 		{
 			return true;
 		}
@@ -54,7 +51,7 @@ public class Student {
 
 	public boolean matches(String last) 
 	{
-		if(last.equals(lastN)) //case sensitive
+		if(last.toLowerCase().equals(lastN.toLowerCase())) //case sensitive
 		{
 			return true;
 		}
@@ -65,26 +62,64 @@ public class Student {
 	}
 	public String getReportString()
 	{
-		String endString = lastN;
+		String endString; 
+		if (lastN.length() > 20)
+		{
+			for (int y = 0; y < lastN.length(); y++)
+			{
+				if(y < lastN.length() - 3)
+				{
+					endString += "...";
+				}
+				endString += lastN.substring(y,y+1);
+			}
+		}
+		else
+		{
+			endString += lastN;
+			
+		}
+		
 		int numberOfSpace = 20;
-		for(int i = 0; i < numberOfSpace - lastN.length() - 2; i++)
+		
+		
+		for(int i = 0; i < numberOfSpace - lastN.length() + 1 ; i++)
 		{
 			endString += " ";
 		}
-		endString += firstN;
-		for(int x = 0; x < numberOfSpace - firstN.length() - 2; x++)
+		
+		if (firstN.length() > 20)
+		{
+			for (int y = 0; y < firstN.length() - 3; y++)
+			{
+				if(y < firstN.length() - 3)
+				{
+					endString += "...";
+				}
+				endString += firstN.substring(y, y+1);
+			}
+		}
+		else
+		{
+			endString += firstN;
+			
+		}
+		
+		for(int x = 0; x < numberOfSpace - firstN.length() + 1; x++)
 		{
 			endString += " ";
 		}
 		
 		if(studentHere)
 		{
-			endString += "PRESENT";
+			endString += "PRESENT\n";
 		}
 		else
 		{
-			endString += "ABSENT";
+			endString += "ABSENT\n";
 		}
 		return endString;
 	}
+	
+ 
 }
