@@ -89,7 +89,7 @@ public class Utility{
 		}
 
 	}
-
+//importedfrom Greeting Class 
 public static final String[] gRes = {"That's good to hear.","Great!",
 		"Wow. Tell me more.","I'm glad it went well.", "That's amazing!"};
 public static final String[] bRes = {"That's bad news.","I'm so sorry.",
@@ -104,7 +104,32 @@ public void Hello()
  helloCount = 0;
 }
 
+//index of keyword after startpsn is isolated, has no negation or -1 otherwise
+public static int findKeyword (String searchString, String keyword, int startPsn)
+{
+	//makes lowercase
+	searchString = searchString.toLowerCase();
+	keyword = keyword.toLowerCase();
+	
+	int psn = searchString.indexOf(keyword, startPsn);
+	
+	while (psn >= 0)
+	{
+		if(keywordIsIsolated(psn, keyword, searchString) && noNegations(searchString, psn))
+		{
+			return psn;
+		}
+		else
+		{
+			psn = searchString.indexOf(keyword, psn+1); //next keyword 
+		}
+	}
+	return -1;
+}
+
 public static boolean keywordIsIsolated(int position ,String keyword ,String s)
+
+
 {
 	int numofS = s.indexOf(keyword);
 	
@@ -178,5 +203,10 @@ public static boolean noNegations(String s, int psn)
 			}
 		}
 	}
+}
+
+public static void print(String string) {
+	// TODO Auto-generated method stub
+	
 }
 }
