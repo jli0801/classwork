@@ -6,6 +6,7 @@ public class ChatbotMain {
 
 	public static final Chatbot chatbot = new Chatbot();
 	private static Scanner inputSource = new Scanner(System.in);
+	
 	public static void main(String[] args) 
 	{
 		chatbot.startChatting();
@@ -13,17 +14,10 @@ public class ChatbotMain {
 
 
 
-public class Utility{
+
 		//copied from class notes - utilities class
 
-		public static boolean keywordIsIsolated(int psn, String keyword, String s){
-			return true;
-		}
-
-		public static boolean noNegations(String s, int psn){
-			return true;
-		}
-
+		
 
 		public static String getInput(){
 			return inputSource.nextLine();
@@ -35,7 +29,7 @@ public class Utility{
 
 		public static void multiLinePrint(String s){
 			String printString = "";
-			int cutoff = 25;
+			int cutoff = 55;
 			//this while loop last as long as there are words left in the original String
 			while(s.length() > 0){
 
@@ -88,7 +82,7 @@ public class Utility{
 			return value;
 		}
 
-	}
+	
 //importedfrom Greeting Class 
 public static final String[] gRes = {"That's good to hear.","Great!",
 		"Wow. Tell me more.","I'm glad it went well.", "That's amazing!"};
@@ -205,8 +199,5 @@ public static boolean noNegations(String s, int psn)
 	}
 }
 
-public static void print(String string) {
-	// TODO Auto-generated method stub
-	
-}
+
 }
