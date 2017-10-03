@@ -67,17 +67,12 @@ public class Student implements Attendee
 		endString = "";
 		if (lastN.length() > 20)
 		{
-			for (int y = 0; y < lastN.length(); y++)
-			{
-				if(y < lastN.length() - 3)
-				{
-					endString += "...";
-				}
-				endString += lastN.substring(y,y+1);
-			}
-			
+			endString = endString + lastN.substring(0, lastN.length()-3) + "...";
 		}
+		else
+		{
 		endString += lastN;
+		}
 
 		int numberOfSpaceL = 20;
 		
@@ -89,17 +84,12 @@ public class Student implements Attendee
 		
 		if (firstN.length() > 20)
 		{
-			for (int y = 0; y < firstN.length() - 3; y++)
-			{
-				if(y < firstN.length() - 3)
-				{
-					endString += "...";
-				}
-				endString += firstN.substring(y, y+1);
-				
-			}
+			endString = endString + firstN.substring(0, firstN.length()-3) + "...";
 		}
+		else
+		{
 		endString += firstN;
+		}
 
 		int numberOfSpaceF = 40;
 		
