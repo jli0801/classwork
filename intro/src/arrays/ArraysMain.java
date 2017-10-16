@@ -4,26 +4,95 @@ import java.util.Arrays;
 
 public class ArraysMain {
 	private int[] testArray;
+	private String[] suits;
+	private String[] values;
 		public ArraysMain()
 		{
 		testArray = new int[50];
-		populate(testArray);
-		countOccurences(testArray, 2, 12);
+		suits = new String[4];
+		suits[0] = "Clubs";
+		suits[1] = "Hearts";
+		suits[2] = "Diamonds";
+		suits[3] = "Spades";
+		values =  new String[13];
+		for(int i = 0; i< values.length; i++ )
+		{
+			values[i] = ""+(i+1);
+		} 
+		values[0] = "Ace";
+		values[12] = "King";
+		values[11] = "Queen";
+		values[10] = "Jack";
+		printDeck();
+	/*	populate(testArray);
+		countOccurences(testArray, 2, 12); //if we roll the dice two times*/
+	//	populate1ToN(testArray);
+	//	swap(testArray, 0, 1);
+	//	shuffle(testArray);
 		System.out.println(Arrays.toString(testArray));
 		}
 
 		
 		
+	private String[] printDeck() {
+	String[] deck = new String[52];
+	int index = 0;
+			for(String suit: suits)
+			{
+				for(String value: values )
+				{
+					deck[index] = (value + " of "+ suit);
+					index++;
+				}
+			}
+			return deck;
+		}
+
+
+
+	private void shuffle(int[] arr) {
+			for( int i=0; i<arr.length ; i++)
+			{
+				swap(arr, i, (int)(Math.random()*arr.length));
+			}
+			
+		}
+
+
+
+	private void swap(int[] arr, int i, int j) {
+			int x = arr[i];
+			arr[i] = arr[j];
+			arr[j] = x;
+		}
+
+
+
+	private void populate1ToN(int[] arr) {
+			// TODO Auto-generated method stub
+		int num =0;
+		for( int i = 0; i <arr.length; i++)
+		{
+			num++;
+			arr[i] = num;
+		}
+		//arr[i] = (i+1);
+		}
+
+
+
 	private void countOccurences(int[] arr, int start, int end) {
 		//why create array with this length?
-		int[] counter = new int [end - start +1];
+		int[] counter = new int [end - start +1]; //11 possible outcomes
 		for(int value: arr)
 		{
 			//why value - start?
 			counter[value - start]++;
+			//assign value 
 		}
 		for(int i =0; i <counter.length; i++)
 		{
+			//counter length = 10 so 2 to 12.
 			System.out.println("The value " + (i+start) + " was rolled "
 					+counter[i] + " times." );
 		}
