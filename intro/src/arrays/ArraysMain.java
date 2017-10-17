@@ -47,6 +47,7 @@ public class ArraysMain {
 					maxLength = currentCount;
 				}
 				i = i +currentCount -1;
+				currentCount = 1;
 			}
 			return currentCount;
 		}
