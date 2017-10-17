@@ -8,7 +8,114 @@ public class ArraysMain {
 	private String[] values;
 		public ArraysMain()
 		{
-		testArray = new int[50];
+	
+	/*	populate(testArray);
+		countOccurences(testArray, 2, 12); //if we roll the dice two times*/
+	//	populate1ToN(testArray);
+	//	swap(testArray, 0, 1);
+	//	shuffle(testArray);
+		//reverseOrder(testArray);
+	//	System.out.println(Arrays.toString(testArray));
+			tuesdayMethods();
+			
+		}
+
+		
+		private void tuesdayMethods() {
+			int[] orderTest = {1,2,3,4,5,1,6,7,8,9,10};
+			//frontToBack(orderTest);
+		//	cycleThrough(orderTest, 5);
+			System.out.println((longestConsecutiveSequence(orderTest) + " is the longest."));
+			
+		}
+
+		private int longestConsecutiveSequence(int[] arr)
+		{
+			int maxLength = 1;
+			int currentCount = 1;
+			
+			for( int i = 0 ; i < arr.length; i++) //start
+			{
+				while (i + currentCount < arr.length &&
+						isConsecutive(arr,i,i+currentCount) )
+					{
+						//see if it's the longest; return the length
+						currentCount++;
+					}
+				if(currentCount > maxLength)
+				{
+					maxLength = currentCount;
+				}
+				i = i +currentCount -1;
+			}
+			return currentCount;
+		}
+			
+			
+		
+		private boolean isConsecutive(int[]arr, int start, int end)
+		{
+		/*	boolean isTrue = false;
+			while(start < end)
+			{
+				if(arr[start]+1 == arr[start+1]+1)
+				{
+					start++;
+					isTrue = true;
+				}
+				else
+				{
+					isTrue = false;
+				}
+				
+			}
+			if (isTrue)
+			{
+				return true; 
+			}
+			else
+			{
+				return false;
+			}
+			*/
+			for( int i = start; i<end; i++)
+			{
+				if(arr[i] != arr[i+1])
+				{
+					return false;
+				}
+			}
+			return true;
+		}
+		private void cycleThrough(int[] orderTest, int i) {
+			for( int x=0; x< i; x++)
+			{
+				frontToBack(orderTest);
+			}
+			
+		}
+
+
+		private void frontToBack(int[] orderTest) {
+	
+			int x = orderTest[0];
+			for(int i = 0; i<orderTest.length-1; i++)
+			{
+				orderTest[i] = orderTest[i+1];
+			}
+			orderTest[orderTest.length-1] = x;
+		}
+
+
+		private void warmUpMethods()
+		{
+			int[] orderTest = {1,2,3,4,5,6,7,8,9,10};
+			reverseOrder(orderTest);
+			System.out.println(Arrays.toString(orderTest));
+			System.out.println(Arrays.toString(subArray(orderTest, 3, 4)));
+		}
+	private void cardMethods()
+	{
 		suits = new String[4];
 		suits[0] = "Clubs";
 		suits[1] = "Hearts";
@@ -24,15 +131,7 @@ public class ArraysMain {
 		values[11] = "Queen";
 		values[10] = "Jack";
 		printDeck();
-	/*	populate(testArray);
-		countOccurences(testArray, 2, 12); //if we roll the dice two times*/
-	//	populate1ToN(testArray);
-	//	swap(testArray, 0, 1);
-	//	shuffle(testArray);
-		System.out.println(Arrays.toString(testArray));
-		}
-
-		
+	}
 		
 	private String[] printDeck() {
 	String[] deck = new String[52];
@@ -50,6 +149,24 @@ public class ArraysMain {
 
 
 
+	private void reverseOrder(int[] arr)
+	{
+		for(int i = 0; i < arr.length/2; i++ )
+		{
+			swap(arr,i,arr.length-1-i);
+		}
+
+	}
+	
+	private int[] subArray(int[] arr,int  psn, int length)
+	{
+		int[] sub = new int[length];
+		for(int i =0; i <length; i++)
+		{
+			sub[i] = arr[i+psn];
+		}
+		return sub;
+	}
 	private void shuffle(int[] arr) {
 			for( int i=0; i<arr.length ; i++)
 			{
