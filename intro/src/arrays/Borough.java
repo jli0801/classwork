@@ -1,16 +1,19 @@
 package arrays;
 
 public class Borough {
+	public static final Borough[] NY_BOROUGHS = {new Borough("Brooklyn"),
+			new Borough("Manhattan"), new Borough("Queens"), 
+			new Borough("Bronx"), new Borough("Staten Island")};
 	private String name;
 	
-	public Borough() {
+	public Borough(String name) {
 		// TODO Auto-generated constructor stub
-	
+	this.name = name;
 	}
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	public String toString()
+	{
+		return name;
 	}
 
 }

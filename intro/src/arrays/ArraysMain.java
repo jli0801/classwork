@@ -17,18 +17,56 @@ public class ArraysMain {
 	//	shuffle(testArray);
 		//reverseOrder(testArray);
 	//	System.out.println(Arrays.toString(testArray));
-			tuesdayMethods();
-			
+	//		tuesdayMethods();
+			wednesdayMethods();
 		}
 
 		
-		private void tuesdayMethods() {
-			int[] orderTest = {1,2,3,4,5,1,6,7,8,9,10};
-			//frontToBack(orderTest);
-		//	cycleThrough(orderTest, 5);
-			System.out.println((longestConsecutiveSequence(orderTest) + " is the longest."));
-			
+		private void wednesdayMethods() {
+		
+			int[] diceRolls = new int[9999999];
+			populate(diceRolls);
+			int[] data = longestConsecutiveSeqAndIndex(diceRolls);
+			int longest = data[0];
+			System.out.println("The longest sequence is " + longest + " rolls"
+					+ " It happened on roll# " + data[1] + " the seqeunce was: "
+					+ Arrays.toString(subArray(diceRolls, data[1],data[0])) 
+					+ ".");
 		}
+
+		/*
+		 * BIG IDEA: usually a method return one piece of data (int,boolean) 
+		 * if we ever want more than one piece of data, one way of doing that is by suing an array. 
+		 * method that returns a length and position is shown below (BOTH INTS)
+		 */
+		private int[] longestConsecutiveSeqAndIndex(int[] arr) {
+			//use an int[] to store data
+			int[] data = new int[2]; //element at 0 will be length, 1 = position 
+			data[0] =1;
+			
+		
+			int currentCount = 1;
+			
+			for( int i = 0 ; i < arr.length; i++) //start
+			{
+				while (i + currentCount < arr.length &&
+						isConsecutive(arr,i,i+currentCount) )
+					{
+						//see if it's the longest; return the length
+						currentCount++;
+					}
+				if(currentCount > data[0])
+				{
+					data[0] = currentCount;
+					//also store index where this sequence started
+					data[1] = i;
+				}
+				i = i + currentCount - 1;
+				currentCount = 1;
+			}
+			return data;
+		}
+
 
 		private int longestConsecutiveSequence(int[] arr)
 		{
@@ -50,36 +88,26 @@ public class ArraysMain {
 				i = i +currentCount -1;
 				currentCount = 1;
 			}
-			return currentCount;
+			return maxLength;
 		}
+		
+		private void tuesdayMethods() {
+			int[] orderTest = {1,2,3,4,5,1,6,7,8,9,10};
+			//frontToBack(orderTest);
+		//	cycleThrough(orderTest, 5);
+			System.out.println((longestConsecutiveSequence(orderTest) + " is the longest."));
+			
+		}
+		
+	
+
+		
 			
 			
 		
 		private boolean isConsecutive(int[]arr, int start, int end)
 		{
-		/*	boolean isTrue = false;
-			while(start < end)
-			{
-				if(arr[start]+1 == arr[start+1]+1)
-				{
-					start++;
-					isTrue = true;
-				}
-				else
-				{
-					isTrue = false;
-				}
-				
-			}
-			if (isTrue)
-			{
-				return true; 
-			}
-			else
-			{
-				return false;
-			}
-			*/
+	
 			for( int i = start; i<end; i++)
 			{
 				if(arr[i] != arr[i+1])
