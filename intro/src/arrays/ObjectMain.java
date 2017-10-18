@@ -5,12 +5,12 @@ public class ObjectMain {
 	public ObjectMain() {
 		Object[] people = new Person[12];
 		populate(people);
+		people[0] = new Thing("toaster oven");
 		for(Object p: people)
 		{
 			System.out.println(p);
 		}
-		people[0] = new Thing("toaster oven");
-	}
+		}
 
 	private void populate(Object[] people) {
 		for(int i = 0; i< people.length; i++)
