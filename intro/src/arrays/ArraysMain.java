@@ -6,6 +6,7 @@ public class ArraysMain {
 	private int[] testArray;
 	private String[] suits;
 	private String[] values;
+	
 		public ArraysMain()
 		{
 	
