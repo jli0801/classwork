@@ -3,14 +3,54 @@ package arrays;
 public class ObjectMain {
 
 	public ObjectMain() {
-		Object[] people = new Person[12];
+		Person[] people = new Person[120];
 		populate(people);
-		people[0] = new Thing("toaster oven");
-		for(Object p: people)
+	//	people[0] = new Thing("toaster oven");
+	//	Person[] group = selectGroup(people, 3);
+	/*	for(Object p: group)
 		{
 			System.out.println(p);
+		}*/
+		
+	//	analyzeCommonalities(people, group);
+		for(Person p: people)
+		{
+			p.mingle(people);
+			System.out.println(p);
+			p.stateYourFriends();
 		}
 		}
+	
+	private void analyzeCommonalities(Person[] people, Person[] group) {
+		double averageCommonality = 0;
+		double trials = 500;
+		double totalNum = 0; 
+		for(int i = 0; i < trials; i++)
+		{
+			group = selectGroup(people, people.length);
+			int sameSeat = countCommonalities(people, group);
+			totalNum += sameSeat;
+		}
+		averageCommonality = totalNum/trials;
+		System.out.println("After " + trials + " trails, shuffling " + people.length 
+				+ " people, on average, " + averageCommonality + " people end up "
+						+ "in the same position");
+	}
+
+	//returns number of items that are the same array in same location(index)
+	private int countCommonalities(Object[] arr1, Object[] arr2)
+	{
+		//PRECONDITION: same length 
+		int haveInCom = 0;
+		for( int i = 0; i < arr1.length; i++)
+		{
+			if(arr1[i] == arr2[i]) //same element in same index
+			{
+				haveInCom++;
+			}
+		}
+		return haveInCom;
+	}
 
 	private void populate(Object[] people) {
 		for(int i = 0; i< people.length; i++)
@@ -38,6 +78,40 @@ public class ObjectMain {
 		
 	}
 
+	public Person[] selectGroup (Person[] population, int length)
+	{
+		Person[] group = new Person[length];
+		for(int i =0; i < length; i++)
+		{
+			Person toAdd = randomPerson(population); //type is a person, random person
+			while (alreadyContains(group, toAdd)) //use while to get different person each time
+				{
+					toAdd = randomPerson(population);
+				}
+			group[i] = toAdd;
+		}
+		return group;
+	}
+	
+	private Person randomPerson(Person[] population)
+	{
+			int randomNumber = (int)(Math.random()*population.length);
+			return population[randomNumber];
+	}
+	//array is created during runtime unlike strings which is a class. Array's are a class too. 
+	//Array is class
+	private boolean alreadyContains(Person[] population, Person p)
+	{
+		for(int i =0; i< population.length; i++)
+		{
+			if(population[i] == p)
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	private Borough randomBorough() {
 		return Borough.NY_BOROUGHS[(int)(Math.random()*Borough.NY_BOROUGHS.length)];
 	}
@@ -52,7 +126,7 @@ public class ObjectMain {
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	
 		ObjectMain obj = new ObjectMain();
 
 	}
