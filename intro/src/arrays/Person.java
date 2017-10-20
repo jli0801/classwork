@@ -34,11 +34,11 @@ public class Person {
 	}
 	
 	public String getFirstName() {
-		return firstName; //source to generate getter setter
+		return firstName; //source to generate getter 
 	}
 
 	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+		this.firstName = firstName; //setter
 	}
 
 	//PASS BY VALUE the parameters of a method contain only values
