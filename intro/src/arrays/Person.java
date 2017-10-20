@@ -21,6 +21,7 @@ public class Person {
 	private Borough home; 
 	private Hobby hobby;
 	private Person[] friends;
+	private String nickname;
 	
 	public Person(String first, String last, Borough home) {
 		// TODO Auto-generated constructor stub
@@ -29,6 +30,54 @@ public class Person {
 		this.home = home;
 		friends = new Person[3];
 		hobby = Hobby.randomHobby();
+		nickname = createNickname(firstName);
+	}
+	
+	public String getFirstName() {
+		return firstName; //source to generate getter setter
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	//PASS BY VALUE the parameters of a method contain only values
+	// not references, when they're changed, the reference to
+	//original object doesn't change
+	public static String createNickname(String name)
+	{
+		String nickname = "";
+		//int indexSecondVowel = 0;
+		int vowelCount = 0;
+		//String[] vowels = {"a", "e", "i", "o", "u"};
+		for(int i =0; i<name.length(); i++) {
+			
+			if(isVowel(name.substring(i, i+1)) )
+			{
+				vowelCount++; 
+				if(vowelCount != 2)
+				{
+					nickname += name.substring(i, i+1);
+				}
+				else
+				{
+					return nickname;
+				}
+			}
+			else
+			{
+				nickname += name.substring(i, i+1);
+			}
+		}
+		return name;
+	}
+	
+	private static boolean isVowel(String x)
+	{
+		return (x.toLowerCase().equals("a") || x.toLowerCase().equals("e") ||
+				x.toLowerCase().equals("i") || x.toLowerCase().equals("o")
+				|| x.toLowerCase().equals("u"));
+		
 	}
 	
 	public void setInFirstPlace (Person f)
@@ -79,7 +128,8 @@ public class Person {
 	public String toString()
 	{
 		return ("My name is " + firstName + " "+ lastName + 
-				" and I am from " +home+ ".");
+				". Call me " + nickname + 
+				". and I am from " +home+ ".");
 	}
 
 	
