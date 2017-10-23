@@ -30,7 +30,7 @@ public class Door {
 		this.open = open;
 	}
 
-	public static String getDescription() {
+	public  String getDescription() {
 		return description;
 	}
 

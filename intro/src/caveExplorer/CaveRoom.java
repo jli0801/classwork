@@ -31,15 +31,21 @@ public class CaveRoom {
 	public void setDirections() {
 		//hint to check if a door is null, use: doors[0] == null OR USE 
 		//doors[0] != null
+		String directions = "";
+		boolean doorFound = false;
 		for(int i = 0; i <doors.length; i++)
 		{
 			if(doors[i] != null)
 			{
-				System.out.println("There is a " + Door.getDescription() + " to " + toDirection(i)); 
+				doorFound = true;
+				directions += "There is a " + doors[i].getDescription() + " to the " + toDirection(i) + "."
+						+ doors[i].getDetails() + "/n"; 
 			}
 		}
-		
-		System.out.println( "There is no way out. You're trapped."); 
+		if(!doorFound)
+		{
+		directions += "There is no way out. You're trapped."; 
+		}
 		
 	}
 	//converts an int to a directions: 
