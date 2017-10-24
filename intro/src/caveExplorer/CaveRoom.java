@@ -113,6 +113,10 @@ public class CaveRoom {
 		return directionWASD.indexOf(input) != -1 && input.length() == 1;
 	}
 
+	/*public static void setUpCaves()
+	{
+		edit your caves
+	}*/ 
 	public void goToRoom(int direction)
 	{
 		//make sure there us a room to go to:
