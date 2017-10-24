@@ -7,6 +7,7 @@ public class ChatbotJessicaL implements Topic {
 	private String secretKeyword;
 	private String response;
 	
+	
 	public ChatbotJessicaL() {
 		String[] temp = {"stuff", "things", "whatever", "nothing"};
 		keywords = temp;
