@@ -167,4 +167,21 @@ public class CaveRoom {
 		this.contents = contents;
 	}
 
+	public static void setUpCaves() {
+		//Size of Caves
+		CaveExplorer.caves = new CaveRoom[6][6];
+		CaveRoom[][] c = CaveExplorer.caves; //shortcut for accessing CaveExplorer
+		//Populate with default caves
+		for(int row = 0; row < c.length; row++)
+		{
+			for(int col = 0; col < c[row].length; col++)
+			{
+				c[row][col] = new CaveRoom("This cave has coordinates "
+						+ row + ", " + col + ".");
+			}
+		}
+		
+		
+	}
+
 }
