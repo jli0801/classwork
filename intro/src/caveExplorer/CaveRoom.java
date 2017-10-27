@@ -180,6 +180,15 @@ public class CaveRoom {
 						+ row + ", " + col + ".");
 			}
 		}
+		//replace default room with custom room (SAVE FOR LATER)
+		//Set starting room
+		
+		CaveExplorer.currentRoom = c[0][1];
+		CaveExplorer.currentRoom.enter();
+		//Set up doors
+		
+		c[0][1].setConnection(SOUTH, c[1][1], new Door());
+		c[1][1].setConnection(EAST, c[1][2], new Door());
 		
 		
 	}
