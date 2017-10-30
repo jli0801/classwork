@@ -13,9 +13,9 @@ public class TwoDArrayPractice {
 		}
 	/*	drawHorizontalLine(pic, 2);
 		drawVerticalLine(pic, 3);
-		drawSlot(pic, 4, 6);*/
+		drawSlot(pic, 4, 6);
 		drawBox(pic, 5, 8);
-		print(pic);
+		print(pic);*/
 	}
 //Box looks like this: ___
 	//                | * |
