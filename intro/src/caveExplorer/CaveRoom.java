@@ -19,6 +19,7 @@ public class CaveRoom {
 	public static final int EAST = 1;
 	public static final int SOUTH = 2;
 	public static final int WEST = 3;
+}
 	
 	public CaveRoom(String description) {
 		this.description = description;
@@ -91,27 +92,41 @@ public class CaveRoom {
 	}
 	
 	
-	public void interpretInput(String input)
-	{
-		while(!isValid(input))
-		{
-			System.out.println("You can only enter 'w', 'a', 's', or 'd'.");
-			input = CaveExplorer.in.nextLine();
+	public void interpretInput(String input) {
+		while(!isValid(input)) {
+			printValidMoves();
 			
+			input = CaveExplorer.in.nextLine();
 		}
-		int direction = "wdsa".indexOf(input);
-		/*
-		 * convert wasd to direction
-		 */
-		
-		goToRoom(direction);
+		int direction =  validMoves().indexOf(input); 
+		if(direction < 4) {
+			goToRoom(direction);
+		}else {
+			performAction(direction);
+		}
 		
 	}
 
-	private boolean isValid(String input) {
-		String directionWASD = "wdsa";
-		return directionWASD.indexOf(input) != -1 && input.length() == 1;
+	public void performAction(int direction) {
+		CaveExplorer.print("That key does nothing.");
+		
 	}
+
+
+
+	private void printValidMoves() {
+		System.out.println("You can only enter 'w', 'a', 's', or 'd'.");
+		
+	}
+
+	public String validMoves() {
+		return "wdsa";
+	}
+	private boolean isValid(String input) {
+		return validMoves().indexOf(input) != -1 && input.length() == 1;
+	}
+
+
 
 	/*public static void setUpCaves()
 	{
@@ -197,5 +212,6 @@ public class CaveRoom {
 	{
 		return doors[direction];
 	}
+	
 
 }
