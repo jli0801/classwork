@@ -1,10 +1,10 @@
 package caveExplorer;
 
-public class NPCRomm extends CaveRoom {
+public class NPCRoom extends CaveRoom {
 
 	private NPC npc;
 	
-	public NPCRomm(String description) {
+	public NPCRoom(String description) {
 		super(description);
 	
 	}

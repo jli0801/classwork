@@ -85,6 +85,7 @@ public class CaveRoom {
 		anotherRoom.addRoom(oppositeDirection(direction), this, door);
 	}
 	
+	
 	public void addRoom(int dir, CaveRoom caveRoom, Door door) {
 		borderingRooms[dir] = caveRoom;
 		doors[dir] = door;
@@ -184,17 +185,21 @@ public class CaveRoom {
 
 	public static void setUpCaves() {
 		//Size of Caves
-		CaveExplorer.caves = new CaveRoom[6][6];
+		CaveExplorer.caves = new NPCRoom[6][6];
 		CaveRoom[][] c = CaveExplorer.caves; //shortcut for accessing CaveExplorer
 		//Populate with default caves
 		for(int row = 0; row < c.length; row++)
 		{
 			for(int col = 0; col < c[row].length; col++)
 			{
-				c[row][col] = new CaveRoom("This cave has coordinates "
+				c[row][col] = new NPCRoom("This cave has coordinates "
 						+ row + ", " + col + ".");
 			}
 		}
+		NPC testNPC = new NPC();
+		testNPC = setPosition(1,2);
+		CaveExplorer.npcs = new NPC[1];
+		CaveExplorer.npcs[0] = testNPC;
 		//replace default room with custom room (SAVE FOR LATER)
 		//Set starting room
 		
@@ -207,6 +212,8 @@ public class CaveRoom {
 		
 		
 	}
+
+
 
 	public Door getDoor(int direction) 
 	{
