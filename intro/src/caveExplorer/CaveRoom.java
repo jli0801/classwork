@@ -19,7 +19,7 @@ public class CaveRoom {
 	public static final int EAST = 1;
 	public static final int SOUTH = 2;
 	public static final int WEST = 3;
-}
+
 	
 	public CaveRoom(String description) {
 		this.description = description;
@@ -197,7 +197,7 @@ public class CaveRoom {
 			}
 		}
 		NPC testNPC = new NPC();
-		testNPC = setPosition(1,2);
+		testNPC.setPosition(1,2);
 		CaveExplorer.npcs = new NPC[1];
 		CaveExplorer.npcs[0] = testNPC;
 		//replace default room with custom room (SAVE FOR LATER)
