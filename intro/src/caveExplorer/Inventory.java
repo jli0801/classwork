@@ -3,9 +3,22 @@ package caveExplorer;
 public class Inventory {
 	
 	private String map;
+	private static int attack;
+	private static int hp;
+	
 	public Inventory()
 	{
-	updateMap();
+		updateMap();
+		hp = 100;
+		attack = (int)(Math.random()*15 +1);
+	}
+
+	public static int getHp() {
+		return hp;
+	}
+
+	public static int getAttack() {
+		return attack;
 	}
 
 	public void updateMap() {
@@ -67,4 +80,6 @@ public class Inventory {
 	{
 		return map;
 	}
+
+
 }
