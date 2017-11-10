@@ -52,7 +52,7 @@ public class Trait {
 		}
 		else if(Math.random() < .5)
 		{
-			return t1
+			return t1;
 		}
 		return t2;
 	}
