@@ -11,11 +11,12 @@ public class Trait {
 	private int index;
 	
 	public Trait() {
-	index = (int)(Math.random()*traits.length);
+		index = (int)(Math.random()*traits.length);
+		description = traits[index];
 	}
 
 	public Trait(int i) { //constructor needs parameter
-		index = (int)(Math.random()*traits.length);
+		this.index = index;
 		description = traits[index];
 	}
 	
