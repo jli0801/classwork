@@ -20,25 +20,18 @@ public class Animal {
 		return trait1;
 	}
 
-	public void setTrait1(Trait trait1) {
-		this.trait1 = trait1;
-	}
+	
 
 	public Trait getTrait2() {
 		return trait2;
 	}
 
-	public void setTrait2(Trait trait2) {
-		this.trait2 = trait2;
-	}
+	
 
 	public int getAge() {
 		return age;
 	}
 
-	public void setAge(int age) {
-		this.age = age;
-	}
 
 	public boolean hasMated() {
 		return mated;
@@ -57,6 +50,7 @@ public class Animal {
 		chooseTraits();
 		description = getName();
 		age = 0;
+	
 	}
 
 	private void chooseTraits() {
@@ -69,19 +63,22 @@ public class Animal {
 		
 	}
 
-	public String toTring()
+	public String toString()
 	{
 		return "a " + age + " year old, "+ trait1 + ", " + trait2 + " " + description;
 	}
+	
 	public Animal(String description, Trait trait1, Trait trait2)
 	{
 		this.trait1 = trait1;
 		this.trait2 = trait2;
-		while(trait2.equals(trait1))
+		while(trait1.equals(trait2))
 		{
 			trait2 = new Trait();
 		}
+		this.description = description;
 	}
+	
 	private String getName() {
 		return "animal";
 	}
