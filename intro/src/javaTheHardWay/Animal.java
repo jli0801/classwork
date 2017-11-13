@@ -2,11 +2,11 @@ package javaTheHardWay;
 
 public class Animal {
 	private String description;
-	private Trait trait1;
-	private Trait trait2;
-	private int age;
+	private Trait trait1; //read only 
+	private Trait trait2; //read only
+	private int age; //read only
 	private boolean mated;
-
+	//read only means that you can't change it. it's permanent
 	
 	public String getDescription() {
 		return description;
