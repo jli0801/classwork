@@ -25,7 +25,7 @@ public class Habitat extends Environment{
 
 	
 
-	private void addAnimal(Animal animal) {
+	void addAnimal(Animal animal) {
 		int i =0;
 		while(i<animals.length)
 		{
