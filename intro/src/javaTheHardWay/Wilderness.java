@@ -23,7 +23,10 @@ public class Wilderness extends Habitat {
 		{
 			for(Animal a: getAnimals())
 			{
-				if(a instanceof ReproductionAnimal)((ReproductionAnimal)a).reset();
+				if(a instanceof ReproductionAnimal)
+					{
+					((ReproductionAnimal)a).reset(); //sets mated to false
+					}
 			}
 			int predatorCount = 0;
 			int preyCount = 0;
