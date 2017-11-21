@@ -37,6 +37,7 @@ public class ReproductionAnimal extends RoamingAnimal {
 				Trait.getDominantTrait(getTrait1(), mate.getTrait1()),
 				Trait.getDominantTrait(getTrait2(), mate.getTrait2()));
 	}
+	
 	public final void mate()
 	{
 		int i = 0;
