@@ -59,11 +59,14 @@ public class ReproductionAnimal extends RoamingAnimal {
 						baby= getOffspring((ReproductionAnimal)target);
 					}
 				}
+				setMated(true);
+				target.setMated(true);
+				break;
 			}
-			setMated(true);
-			target.setMated(true);
-			break;
-			}
+			i++;
+			
+		}
+	
 	}
 
 }
