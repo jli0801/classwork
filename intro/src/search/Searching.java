@@ -68,12 +68,13 @@ public class Searching {
 			{
 				return middleNum;
 			}
-			else if (target < startThis[middleNum]) //less than middle
+			
+			if (target < startThis[middleNum]) //less than middle
 			{
 				
 				binarySearch(startThis, startIndex, middleNum-1, target);
 			}
-			else if(target > startThis[middleNum]) //more
+			else //(target > startThis[middleNum]) //more
 			{
 				
 				binarySearch(startThis, middleNum+1, endIndex, target);
