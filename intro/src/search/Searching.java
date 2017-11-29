@@ -56,20 +56,22 @@ public class Searching {
 
 	public static int binarySearch(int[] startThis, int startIndex, int endIndex, int target)
 	{
-		int middleNum = (endIndex - startIndex)/2;
-		if(target == middleNum) //more than middle
+		int middleNum = (endIndex + startIndex)/2;
+		
+		
+		if(target == startThis[middleNum]) //more than middle
 		{
 			return middleNum;
 		}
-		else if (target < middleNum) //less than middle
+		else if (target < startThis[middleNum]) //less than middle
 		{
-			 endIndex = middleNum; //set end to middle
-			binarySearch(startThis, startIndex, endIndex, target);
+			
+			binarySearch(startThis, startIndex, middleNum, target);
 		}
-		else if(target > middleNum)
+		else if(target > startThis[middleNum]) //more
 		{
-			startIndex = middleNum; //set start to middle
-			binarySearch(startThis, startIndex, endIndex, target);
+			
+			binarySearch(startThis, middleNum, endIndex, target);
 		}
 			
 		return -1;
