@@ -1,5 +1,7 @@
 package pokemon;
 
+import java.util.logging.Level;
+
 public class Pokemon {
 
 	private int level;
@@ -44,10 +46,25 @@ public class Pokemon {
 				
 			}
 		});
+		 
+		squirtle.levelUp(new Effect() {
+			
+			public void happen() {
+				squirtle.setHp(100);
+			}
+			
+		});
 		//ctrl space 
 		 
 
 	}
+	
+	public void levelUp(Effect e)
+	{
+		level++;
+		e.happen();
+	}
+	
 	private void iChooseYou()
 	{
 		System.out.println(name + ", " + name + "!");
