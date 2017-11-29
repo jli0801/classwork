@@ -51,6 +51,7 @@ public class Pokemon {
 			
 			public void happen() {
 				squirtle.setHp(100);
+				//final if you want to modify a reference outside of body
 			}
 			
 		});
