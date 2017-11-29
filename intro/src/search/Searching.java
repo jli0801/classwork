@@ -58,23 +58,28 @@ public class Searching {
 	{
 		int middleNum = (endIndex + startIndex)/2;
 		
+		if(startIndex >endIndex)
+		{
+			return -1;
+		}
+		else
+		{
+			if(target == startThis[middleNum]) //more than middle
+			{
+				return middleNum;
+			}
+			else if (target < startThis[middleNum]) //less than middle
+			{
+				
+				binarySearch(startThis, startIndex, middleNum-1, target);
+			}
+			else if(target > startThis[middleNum]) //more
+			{
+				
+				binarySearch(startThis, middleNum+1, endIndex, target);
+			}
+		}	
 		
-		if(target == startThis[middleNum]) //more than middle
-		{
-			return middleNum;
-		}
-		else if (target < startThis[middleNum]) //less than middle
-		{
-			
-			binarySearch(startThis, startIndex, middleNum, target);
-		}
-		else if(target > startThis[middleNum]) //more
-		{
-			
-			binarySearch(startThis, middleNum, endIndex, target);
-		}
-			
-		return -1;
 		
 	}
 
