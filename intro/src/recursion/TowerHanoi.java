@@ -8,17 +8,15 @@ public class TowerHanoi {
 	private static String end;
 	private static String result;
 	
-	public TowerHanoi() {
+	
+	public static void main(String[] args) {
 		disks = 3;
 		start = "start pole";
 		helper = "helper pole";
 		end = "end pole";
 		result = "";
-	}
-
-	public static void main(String[] args) {
 		
-		result = solve(3, "start", "helper", "end");
+		result = solve(disks, start, helper, end);
 		System.out.println(result);
 	}
 
