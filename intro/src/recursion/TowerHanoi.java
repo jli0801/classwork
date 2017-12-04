@@ -20,7 +20,7 @@ public class TowerHanoi {
 		System.out.println(result);
 	}
 
-	private static String solve(int n, String start, String helper, String end) {
+	private static String solve(int n, String start, String helper, String end) { // 1 2 3
 		if(n==0)
 		{
 			return start + " moves to " + end;
@@ -29,9 +29,9 @@ public class TowerHanoi {
 		else
 		{
 			String part1, part2, part3;
-			part1 =  solve(n-1, start, end, helper) + "\n";
+			part1 =  solve(n-1, start, end, helper) + "\n"; //move all to helper (helper is now end)
 			part2 =  start + " moves to " + end + "\n";
-			part3 =  solve(n-1, helper, start, end) + "\n";
+			part3 =  solve(n-1, helper, start, end) + "\n"; //move all from helper to end (end is now end)
 			return part1 + part2 + part3;
 		}
 		
