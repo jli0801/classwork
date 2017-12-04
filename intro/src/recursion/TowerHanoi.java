@@ -19,7 +19,7 @@ public class TowerHanoi {
 	public static void main(String[] args) {
 		
 		result = solve(3, start, helper, end);
-
+		System.out.println(result);
 	}
 
 	private static String solve(int n, String start, String helper, String end) {
@@ -31,7 +31,7 @@ public class TowerHanoi {
 		{
 			String part1, part2, part3;
 			part1 = solve(n-1, start, helper, end);
-			part2 = start + " moves to " + end;
+			part2 = start + " moves to " + end + "\n";
 			part3 = solve(n-1, helper, end, start);
 			return part1 + part2 + part3;
 		}
